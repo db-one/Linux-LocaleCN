@@ -17,3 +17,4 @@
 * Ubuntu 14 / 16 /18
 * CentOS 6 / 7
 
+## 来自 [FunctionClub/LocaleCN](https://github.com/FunctionClub/LocaleCN)
