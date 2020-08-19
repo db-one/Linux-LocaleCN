@@ -3,7 +3,7 @@
 
 ## 命令
 
-    wget -N --no-check-certificate https://raw.githubusercontent.com/kang-mk/LocaleCN/master/LocaleCN.sh && bash LocaleCN.sh
+    wget -N --no-check-certificate https://raw.githubusercontent.com/db-one/Linux-LocaleCN/master/LocaleCN.sh && bash LocaleCN.sh
 
 ## 使用前
 ![1](before.png)
