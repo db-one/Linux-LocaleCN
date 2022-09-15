@@ -2,7 +2,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 export PATH
 
-# 检查系统类型
+echo 检查系统类型
 if [ -f /etc/redhat-release ]; then
     release="centos"
 elif cat /etc/issue | grep -Eqi "debian"; then
@@ -19,7 +19,7 @@ elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
 fi
 
-# 检查root
+echo 检查root
 [[ $EUID -ne 0 ]] && echo -e "${RED}Error:${PLAIN} This script must be run as root!" && exit 1
 
 # Install some dependencies
@@ -33,7 +33,7 @@ fi
 # Get Word dir
 dir=$(pwd)
 
-# 更改语言环境
+echo 更改语言环境
 if [ "${release}" == "centos" ]; then
 	localedef -v -c -i zh_CN -f UTF-8 zh_CN.UTF-8 > /dev/null 2>&1
 	cd /etc
@@ -64,7 +64,7 @@ elif [ "${release}" == "ubuntu" ]; then
 	cp locale.conf locale
 fi
 
-# 返回成功信息
+echo 返回成功信息
 clear
 echo "您的服务器语言设置已被改为中文（简体）"
 echo "重新连接到您的服务器以检查它"
