@@ -2,7 +2,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 export PATH
 
-# Check System Release
+# 检查系统类型
 if [ -f /etc/redhat-release ]; then
     release="centos"
 elif cat /etc/issue | grep -Eqi "debian"; then
@@ -19,7 +19,7 @@ elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
 fi
 
-# Check root
+# 检查root
 [[ $EUID -ne 0 ]] && echo -e "${RED}Error:${PLAIN} This script must be run as root!" && exit 1
 
 # Install some dependencies
@@ -33,7 +33,7 @@ fi
 # Get Word dir
 dir=$(pwd)
 
-# Change Locale
+# 更改语言环境
 if [ "${release}" == "centos" ]; then
 	localedef -v -c -i zh_CN -f UTF-8 zh_CN.UTF-8 > /dev/null 2>&1
 	cd /etc
@@ -64,14 +64,13 @@ elif [ "${release}" == "ubuntu" ]; then
 	cp locale.conf locale
 fi
 
-# Echo Success
+# 返回成功信息
 clear
-echo "Your VPS Language setting is changed to Chinese(Simplified)"
-echo "Reconnect to your VPS to check it"
+echo "您的服务器语言设置已被改为中文（简体）"
+echo "重新连接到您的服务器以检查它"
 echo ""
-echo "Powered By zhujiboke.com "
-echo "QQ Group: 119612388"
+echo "脚本来自 zhujiboke.com "
 
-# Delete self
+# 删除脚本
 cd ${dir}
 rm -rf LocaleCN.sh
